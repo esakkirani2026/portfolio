@@ -1,18 +1,485 @@
-<section id="projects">
-    <h2 class="title">My Project</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esakkirani | Portfolio</title>
 
-    <div class="cards">
-        <div class="card project">
-            <h3>Hospital Appointment Management System</h3>
-            <p>
-                A web-based system designed to manage hospital appointments
-                efficiently.
-            </p>
-            <p>
-                Patients can book appointments and hospital staff can
-                manage doctors, patients and appointment schedules.
-            </p>
-            <p><strong>Technologies:</strong> HTML, CSS, JavaScript</p>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #2563eb;
+        }
+
+        .home {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #eff6ff, #ffffff);
+        }
+
+        .home-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .home-content {
+            width: 60%;
+        }
+
+        .home-content h1 {
+            font-size: 52px;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .home-content h2 {
+            font-size: 28px;
+            color: #334155;
+            margin-bottom: 15px;
+        }
+
+        .home-content p {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .profile {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: #2563eb;
+            margin-bottom: 40px;
+        }
+
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 850px;
+            margin: auto;
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        .education {
+            background: #f5f7fb;
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            gap: 25px;
+        }
+
+        .card {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #2563eb;
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 23px;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .skills {
+            background: white;
+        }
+
+        .skill-container {
+            max-width: 900px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 15px 25px;
+            background: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .certificates {
+            background: #f5f7fb;
+        }
+
+        .certificate-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            gap: 25px;
+        }
+
+        .certificate {
+            flex: 1;
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .certificate h3 {
+            color: #2563eb;
+            margin-bottom: 12px;
+        }
+
+        .certificate p {
+            color: #64748b;
+        }
+
+        .project {
+            background: white;
+        }
+
+        .project-box {
+            max-width: 900px;
+            margin: auto;
+            background: #eff6ff;
+            padding: 35px;
+            border-left: 6px solid #2563eb;
+            border-radius: 8px;
+        }
+
+        .project-box h3 {
+            color: #2563eb;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .project-box p {
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .contact {
+            background: #f5f7fb;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-box p {
+            margin: 12px;
+            font-size: 17px;
+        }
+
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 750px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .home-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 0;
+            }
+
+            .home-content {
+                width: 100%;
+            }
+
+            .home-content h1 {
+                font-size: 40px;
+            }
+
+            .education-container,
+            .certificate-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ESAKKIRANI</div>
+
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
+
+    <section class="home" id="home">
+        <div class="home-container">
+
+            <div class="home-content">
+                <h1>Hi, I'm Esakkirani</h1>
+                <h2>MCA Student</h2>
+
+                <p>
+                    Welcome to my personal portfolio.
+                    I am interested in programming,
+                    web development and modern technologies.
+                </p>
+
+                <a href="#about" class="button">About Me</a>
+                <a href="#contact" class="button">Contact</a>
+            </div>
+
+            <div class="profile">E</div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-text">
+            <p>
+                I am Esakkirani. I have completed my
+                Bachelor of Computer Applications (BCA)
+                and I am currently pursuing Master of
+                Computer Applications (MCA).
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in programming, web development,
+                database management and learning new technologies.
+                I enjoy improving my technical knowledge through
+                academic projects and practical learning.
+            </p>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-container">
+
+            <div class="card">
+                <h3>UG - BCA</h3>
+                <p><strong>Bachelor of Computer Applications</strong></p>
+                <p>Status: Completed</p>
+                <p>
+                    Studied programming, database management,
+                    web development and computer applications.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>PG - MCA</h3>
+                <p><strong>Master of Computer Applications</strong></p>
+                <p>Status: Currently Pursuing</p>
+                <p>
+                    Learning advanced programming,
+                    application development and modern technologies.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+
+        <div class="skill-container">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">C Programming</div>
+            <div class="skill">PHP</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">JavaScript</div>
+        </div>
+    </section>
+
+    <section class="project" id="project">
+        <h2 class="section-title">My Project</h2>
+
+        <div class="project-box">
+            <h3>Hospital Appointment Management System</h3>
+
+            <p>
+                Hospital Appointment Management System is
+                a web-based application developed to manage
+                hospital appointments efficiently.
+            </p>
+
+            <p>
+                The system helps manage information related
+                to patients, doctors and appointments.
+            </p>
+
+            <p>
+                <strong>Technologies Used:</strong>
+                HTML, CSS, PHP, JavaScript and MySQL.
+            </p>
+        </div>
+    </section><!-- Certificates -->
+<section id="certificates" class="section">
+    <h2 class="section-title">Certificates</h2>
+
+    <div class="certificates-container">
+
+        <div class="certificate-card">
+    <h3>Banking and Finance</h3>
+    <p>Certificate of Completion</p>
+    <span>Manonmaniam Sundaranar University</span>
+</div>
+    <h3>Data Science, AI and Cybersecurity in BFSI</h3>
+    <p>Issued by</p>
+    <span>IITM Pravartak Technology Foundation & Infact Pro Trainers</span>
+</div>
+ 
+
+  </div>
 </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-box">
+            <p><strong>Name:</strong> Esakkirani</p>
+            <p><strong>Course:</strong> MCA</p>
+            <p><strong>Email:</strong> rani@gmail.com</p>
+            <p><strong>Phone:</strong> 6789547689</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Esakkirani | Personal Portfolio</p>
+    </footer>
+
+</body>
+</html><a href="https://www.linkedin.com/in/esakkirani-m-b62683432" target="_blank" class="linkedin-btn">
+    View My LinkedIn
+</a><a href="https://www.linkedin.com/in/esakkirani-m-b62683432" target="_blank" class="linkedin-btn">
+    View My LinkedIn
+</a>
